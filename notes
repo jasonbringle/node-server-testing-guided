@@ -1,0 +1,5 @@
+supertest --- Enables testing Http (kinda like axios)
+
+cross-env --  Runs scripts that set and use environment variables across variables.
+
+knex --env=testing  migrate:latest ----> tells where you want to migrate from
