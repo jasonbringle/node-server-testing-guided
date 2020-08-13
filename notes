@@ -3,3 +3,21 @@ supertest --- Enables testing Http (kinda like axios)
 cross-env --  Runs scripts that set and use environment variables across variables.
 
 knex --env=testing  migrate:latest ----> tells where you want to migrate from
+
+
+Setting up Heroku
+
+1. In Heroku create App
+2. connect to github
+3. Choose repo
+4. Choose Branch
+5. In our project npm i pg (adds to dependencies)
+6. Push to repo
+7. heroku logs --tail -a (app-name)  shows as it builds
+8.  Since Heroku doesnt look at the .env it uses the db-config.js to see the environemnt (in this case its development)
+9.  In Heroku to create a Postgres db go to resources and add-on Heroku Postgres.(creates DB server for us)
+10. Go to settings Config Vars  and create another environemnt variable called production.  
+11. Now in our heroku (via the command line in terminal) we need to migrate our database:
+    heroku run knex migrate:latest -a (heroku app name)
+12.Then run seeds with:
+    heroku run knex seed:run -a (heroku app name)
